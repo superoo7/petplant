@@ -2,6 +2,8 @@
 
 I present to you Pet Plant 🌱🎮
 
+![](./resized_plant4.png)
+
 A Decentralized-AI-Powered Play-to-Earn IoT and Blockchain GameFi Tamagochi Featuring a Points System and RWA
 
 The most over-engineered way to keep your tamagochi is built with ChasmNetwork and Chromia Blockchain
