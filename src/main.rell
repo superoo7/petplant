@@ -1,0 +1,56 @@
+module;
+
+enum stage {
+    seed,
+    sprout,
+    young_plant,
+    mature_plant,
+}
+
+entity plant {
+    address: byte_array;
+    mutable points: integer;
+    mutable stage: stage;
+    created_at: integer = op_context.last_block_time;
+}
+
+operation water_plant() {
+    val addr = op_context.get_signers()[0];
+    // check exist or not
+    val plant = plant @? { .address == addr };
+    if (plant == null) {
+        create plant (
+            address = addr,
+            points = 5,
+            stage = stage.seed,
+        );
+    } else {
+        val points = plant.points + 5;
+        var plant_stage = plant.stage;
+        if (points < 10) {
+            plant_stage = stage.seed;
+        } else if (points < 20) {
+            plant_stage = stage.sprout;
+        } else if (points < 30) {
+            plant_stage = stage.young_plant;
+        } else if (points > 50) {
+            plant_stage = stage.mature_plant;
+        }
+        update plant @* { .address == addr } (
+            points = points,
+            stage = plant_stage,
+        );
+    }
+
+}
+
+query get_points(addr: byte_array) {
+    return plant @* {
+        .address == addr
+    } (
+        .address,
+        .points,
+        .stage,
+        .created_at,
+    );
+}

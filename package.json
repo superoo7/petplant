@@ -1,0 +1,22 @@
+{
+  "name": "petrock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "^2.1.0",
+    "nodemon": "^3.1.7",
+    "oled-font-5x7": "^1.0.3",
+    "oled-js": "^5.1.2",
+    "openai": "^4.65.0",
+    "png-to-lcd": "^1.1.0",
+    "pngparse": "^2.0.1",
+    "postchain-client": "^1.18.0"
+  }
+}
